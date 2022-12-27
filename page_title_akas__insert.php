@@ -60,7 +60,11 @@ if (isset($_GET['Insert'])){
         $col5 = intval($_GET['isOriginalTitle']);
         $sql = "INSERT INTO title_akas VALUES ('{$col1}','{$col2}','{$col3}','{$col4}',{$col5});";
         $result = mysqli_query($conn, $sql);
-        echo "successful insert a row into title_akas";
+        echo('
+            <div class="alert alert-success" role="alert">
+                successful insert a row into title_akas
+            </div>
+        ');
     } catch (Exception $e){
         if (str_contains($e, 'Duplicate')){
             echo "<b>Insertion failed.</b> This titleId already exists.";

@@ -43,7 +43,11 @@ if (isset($_GET['check'])){
     $resultCheck = mysqli_num_rows($result);
 
     if ($resultCheck>1){
-        echo "**Please Enter a specific region to continue**"."<br>";
+        echo('
+        <div class="alert alert-warning" role="alert">
+        Please Enter a specific region to continue
+        </div>
+        ');
     }
 
     if ($resultCheck>0){
@@ -65,7 +69,11 @@ if (isset($_GET['check'])){
         echo '</tbody>';
         echo '</table>';
     } else{
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
     if ($resultCheck==1){
         echo ('
@@ -105,7 +113,11 @@ if (isset($_GET['update'])){
         $col2 = trim($_GET['col2']);
         $sql = "update region set regionName='{$col2}' where region='{$col1}';";
         mysqli_query($conn, $sql);
-        echo "successfully update a row from region";
+        echo('
+        <div class="alert alert-success" role="alert">
+            successful update a row from region
+        </div>
+        ');
     } catch (Exception $e){
         echo $e;
     }

@@ -101,7 +101,11 @@ if (isset($_GET['submit'])){
         echo '</table>';
 
     } else {
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
 }
 
@@ -130,7 +134,11 @@ if (isset($_GET['getall'])){
         echo '</tbody>';
         echo '</table>';
     } else {
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
 }
 

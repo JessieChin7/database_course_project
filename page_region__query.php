@@ -15,7 +15,7 @@
 
     <form class="form-inline">
         <div class="row gx-5 justify-content-center">
-            <div class="col-lg-6 col-xl-4">
+            <div class="col-lg-12 col-xl-8">
                 <div class="card mb-5 mb-xl-0">
                     <div class="card-body p-5">
                         <div class="text-left mb-3">
@@ -33,7 +33,7 @@
         </div>
 
         <div class="row gx-5 justify-content-center py-3">
-            <div class="col-lg-6 col-xl-4">
+            <div class="col-lg-12 col-xl-8">
                 <div class="card mb-5 mb-xl-0">
                     <div class="d-grid"><button class="btn btn-info btn-lg" name='getall' id="submitButton" type="submit">Get All</button></div>
                 </div>
@@ -66,7 +66,11 @@ if (isset($_GET['submit'])){
         echo '</tbody>';
         echo '</table>';
     } else {
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
 }
 
@@ -92,7 +96,11 @@ if (isset($_GET['getall'])){
         echo '</tbody>';
         echo '</table>';
     } else {
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
 }
 

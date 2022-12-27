@@ -96,18 +96,13 @@ if (isset($_GET['submitId'])){
             </div>
         </form>
         ');
-        // <form>
-        // <select name='delete_const'>
-        //     <option>{$const}</option>
-        // </select>
-        // <select name='delete_table'>
-        //     <option>{$profession}</option>
-        // </select>
-        // <button type='submit' name='delete'>Delete</button>
-        // </form>
         
     }else if ($resultCheck>1){
-        echo "**Please Enter a specific nconst to continue**"."<br>";
+        echo('
+        <div class="alert alert-warning" role="alert">
+        Please Enter a specific nconst to continue
+        </div>
+        ');
         echo '<table class="table table-striped table-bordered">';
         echo '<thead>';
         echo '<tr>';
@@ -135,7 +130,11 @@ if (isset($_GET['delete'])){
         $col = trim($_GET['delete_const']);
         $sql = "delete from {$d_profession} where nconst='{$col}';";
         mysqli_query($conn, $sql);
-        echo "successfully delete a row from {$d_profession}";
+        echo('
+        <div class="alert alert-success" role="alert">
+            successfully delete a row from '.$d_profession.'
+        </div>
+        ');
     } catch (Exception $e){
         echo $e;
     }

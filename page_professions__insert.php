@@ -56,7 +56,11 @@ if (isset($_GET['Insert'])){
         $profession = $_GET['profession'];
         $sql = "insert into {$profession} VALUES ('{$col1}','{$col2}');";
         $result = mysqli_query($conn, $sql);
-        echo "successful insert a row into region";
+        echo('
+        <div class="alert alert-success" role="alert">
+            successful insert a row into '.$profession.'
+        </div>
+        ');
     } catch (Exception $e){
         if (str_contains($e, 'Duplicate')){
             echo "<b>Insertion failed.</b> This region already exists.";

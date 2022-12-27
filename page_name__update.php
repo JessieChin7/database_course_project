@@ -71,7 +71,11 @@ if (isset($_GET['check'])){
         echo '</tbody>';
         echo '</table>';
     } else{
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
     if ($resultCheck==1){
         echo ('
@@ -129,9 +133,12 @@ if (isset($_GET['update'])){
         $col4 = intval($_GET['col4']);
         $col5 = trim($_GET['col5']);
         $sql = "update name set primaryName='{$col2}',birthYear={$col3},deathYear={$col4},knownForTitles='{$col5}' where nconst='{$col1}';";
-        // echo $sql ;
         mysqli_query($conn, $sql);
-        echo "successfully update a row from name";
+        echo('
+        <div class="alert alert-success" role="alert">
+            successful update a row from name
+        </div>
+        ');
     } catch (Exception $e){
         if (str_contains($e, 'FOREIGN KEY (`knownForTitles`)')){
             echo "<b>Update failed.</b> This title doesn't exists. Please insert the new title to the title(tconst) table first to continue.";

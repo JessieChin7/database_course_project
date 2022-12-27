@@ -86,7 +86,11 @@
             echo '</tbody>';
             echo '</table>';
         } else {
-            echo "No matching results";
+            echo('
+            <div class="alert alert-warning" role="alert">
+                No matching results
+            </div>
+            ');
         }
     }
 
@@ -119,7 +123,12 @@
             echo '</tbody>';
             echo '</table>';
         } else {
-            echo "No matching results";
+            echo('
+            <div class="alert alert-warning" role="alert">
+                No matching results
+            </div>
+            ');
+
         }
     }
 
@@ -151,7 +160,11 @@
             echo '</tbody>';
             echo '</table>';
         } else {
-            echo "No matching results";
+            echo('
+            <div class="alert alert-warning" role="alert">
+                No matching results
+            </div>
+            ');
         }
     }
     ?>

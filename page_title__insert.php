@@ -73,7 +73,11 @@ if (isset($_GET['Insert'])){
         $col8 = trim($_GET['primaryName']);
         $sql = "INSERT INTO title VALUES ('{$col1}','{$col2}','{$col3}','{$col4}',{$col5},{$col6},'{$col7}','{$col8}');";
         $result = mysqli_query($conn, $sql);
-        echo "successful insert a row into title";
+        echo('
+            <div class="alert alert-success" role="alert">
+                successful insert a row into title
+            </div>
+        ');
     } catch (Exception $e){
         if (str_contains($e, 'Duplicate')){
             echo "<b>Insertion failed.</b> This tconst already exists.";

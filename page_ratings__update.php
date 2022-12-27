@@ -14,7 +14,7 @@
     </nav>
     <form class="form-inline">
         <div class="row gx-5 justify-content-center">
-            <div class="col-lg-6 col-xl-4">
+            <div class="col-lg-12 col-xl-8">
                 <div class="card mb-5 mb-xl-0">
                     <div class="card-body p-5">
                         <div class="text-left mb-3">
@@ -46,7 +46,11 @@ if (isset($_GET['check'])){
     $resultCheck = mysqli_num_rows($result);
 
     if ($resultCheck>1){
-        echo "**Please Enter a specific tconst to continue**"."<br>";
+        echo('
+        <div class="alert alert-warning" role="alert">
+        Please Enter a specific tconst to continue
+        </div>
+        ');
     }
 
     if ($resultCheck>0){
@@ -71,7 +75,11 @@ if (isset($_GET['check'])){
         echo '</table>';
 
     } else{
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
     if ($resultCheck==1){
         echo ('
@@ -115,7 +123,11 @@ if (isset($_GET['update'])){
         $col3 = intval($_GET['col3']);
         $sql = "update ratings set averageRating={$col2},numVotes={$col3} where tconst='{$col1}';";
         mysqli_query($conn, $sql);
-        echo "successfully update a row from ratings";
+        echo('
+        <div class="alert alert-success" role="alert">
+            successful update a row from ratings
+        </div>
+        ');
     } catch (Exception $e){
         echo $e;
     }

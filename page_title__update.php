@@ -43,7 +43,11 @@ if (isset($_GET['check'])){
     $resultCheck = mysqli_num_rows($result);
    
     if ($resultCheck>1){
-        echo "**Please Enter a specific tconst to continue**"."<br>";
+        echo('
+        <div class="alert alert-warning" role="alert">
+        Please Enter a specific tconst to continue
+        </div>
+        ');
     }
 
     if ($resultCheck>0){
@@ -77,7 +81,11 @@ if (isset($_GET['check'])){
         echo '</tbody>';
         echo '</table>';
     } else{
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
     if ($resultCheck==1){
         echo ('
@@ -147,7 +155,11 @@ if (isset($_GET['update'])){
         $col8 = trim($_GET['col8']);
         $sql = "update title set titleType='{$col2}',primaryTitle='{$col3}',originalTitle='{$col4}',isAdult={$col5},startYear={$col6},genres='{$col7}',primaryName='{$col8}' where tconst='{$col1}';";
         mysqli_query($conn, $sql);
-        echo "successfully update a row from title";
+        echo('
+        <div class="alert alert-success" role="alert">
+            successful update a row from title
+        </div>
+        ');
     } catch (Exception $e){
         if (str_contains($e, 'FOREIGN KEY (`primaryName`) ')){
             echo "<b>Update failed.</b> This primaryName doesn't exists. Please insert the new primaryName to the name(nconst) table first to continue.";

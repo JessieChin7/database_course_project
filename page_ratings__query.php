@@ -85,7 +85,11 @@ if (isset($_GET['submitName'])){
         echo '</tbody>';
         echo '</table>';
     } else {
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
 }
 if (isset($_GET['submitId'])){
@@ -115,7 +119,11 @@ if (isset($_GET['submitId'])){
         echo '</tbody>';
         echo '</table>';
     } else {
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
 }
 
@@ -145,7 +153,11 @@ if (isset($_GET['getall'])){
         echo '</tbody>';
         echo '</table>';
     } else {
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
 }
 

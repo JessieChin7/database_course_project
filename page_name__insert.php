@@ -58,10 +58,12 @@ if (isset($_GET['Insert'])){
         $col4 = intval($_GET['deathYear']);
         $col5 = trim($_GET['knownForTitles']);
         $sql = "insert into name VALUES ('{$col1}','{$col2}',{$col3},{$col4},'{$col5}');";
-        // echo "$sql";
         $result = mysqli_query($conn, $sql);
-        // echo "$result";
-        echo "successful insert a row into name";
+        echo('
+            <div class="alert alert-success" role="alert">
+                successful insert a row into name
+            </div>
+        ');
     } catch (Exception $e){
         if (str_contains($e, 'Duplicate')){
             echo "<b>Insertion failed.</b> This nconst already exists.";

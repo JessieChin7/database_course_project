@@ -15,7 +15,7 @@
 
     <form class="form-inline">
         <div class="row gx-5 justify-content-center">
-            <div class="col-lg-6 col-xl-4">
+            <div class="col-lg-12 col-xl-8">
                 <div class="card mb-5 mb-xl-0">
                     <div class="card-body p-5">
                         <div class="text-left mb-3">
@@ -83,8 +83,11 @@ if (isset($_GET['submit'])){
         ');
     
     }else if ($resultCheck>1){
-        echo "**Please Enter a specific tconst to continue**"."<br>";
-
+        echo('
+            <div class="alert alert-warning" role="alert">
+            Please Enter a specific tconst to continue
+            </div>
+        ');
         echo '<table class="table table-striped table-bordered">';
         echo '<thead>';
         echo '<tr>';
@@ -104,7 +107,11 @@ if (isset($_GET['submit'])){
         echo '</tbody>';
         echo '</table>';
     } else{
-        echo "No matching results";
+        echo('
+            <div class="alert alert-warning" role="alert">
+            No matching results
+            </div>
+        ');
     }
 }
 
@@ -113,7 +120,11 @@ if (isset($_GET['delete'])){
         $col = trim($_GET['delete_tconst']);
         $sql = "delete from ratings where tconst='{$col}';";
         mysqli_query($conn, $sql);
-        echo "successfully delete a row from ratings";
+        echo('
+            <div class="alert alert-success" role="alert">
+            successfully delete a row from ratings
+            </div>
+        ');
     } catch (Exception $e){
         echo $e;
     }

@@ -100,7 +100,11 @@ if (isset($_GET['submitName'])){
         </form>
         ');
     }else if ($resultCheck>1){
-        echo "**Please Enter a specific primaryName to continue**"."<br>";
+        echo('
+        <div class="alert alert-warning" role="alert">
+        Please Enter a specific primaryName to continue
+        </div>
+        ');
         echo '<table class="table table-striped table-bordered">';
         echo '<thead>';
         echo '<tr>';
@@ -167,7 +171,7 @@ if (isset($_GET['submitId'])){
                         </div>
                         <div class="form mb-3" >
                             <select class="form-control form-select" name="delete_const" readonly>
-                                <option>'.$nconst.'</option>
+                                <option>'.$const.'</option>
                             </select>
                         </div>
                         <div class="d-grid"><button class="btn btn-primary btn-lg" name="delete" id="submitButton" type="submit">Delete</button></div>
@@ -178,7 +182,11 @@ if (isset($_GET['submitId'])){
         </form>
         ');
     }else if ($resultCheck>1){
-        echo "**Please Enter a specific nconst to continue**"."<br>";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            Please Enter a specific nconst to continue
+        </div>
+        ');
         echo '<table class="table table-striped table-bordered">';
         echo '<thead>';
         echo '<tr>';
@@ -202,7 +210,11 @@ if (isset($_GET['submitId'])){
         echo '</tbody>';
         echo '</table>';
     }   else{
-        echo "No matching results";
+        echo('
+            <div class="alert alert-warning" role="alert">
+                No matching results
+            </div>
+        ');
     }
 }
 
@@ -211,7 +223,11 @@ if (isset($_GET['delete'])){
         $col = trim($_GET['delete_const']);
         $sql = "delete from name where nconst='{$col}';";
         mysqli_query($conn, $sql);
-        echo "successfully delete a row from name";
+        echo('
+            <div class="alert alert-success" role="alert">
+                successfully delete a row from name
+            </div>
+        ');
     } catch (Exception $e){
         echo $e;
     }

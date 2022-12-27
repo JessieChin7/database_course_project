@@ -22,8 +22,8 @@
                             <p class="lead fw-normal text-muted mb-0">Please input the following informations</p>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nconst" name='tconst' placeholder="Enter nconst">
-                            <label for="nconst">nconst</label>
+                            <input type="text" class="form-control" id="tconst" name='tconst' placeholder="Enter tconst">
+                            <label for="tconst">tconst</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input type="number" class="form-control" min='0' max='10' step='0.1' id="averageRating" name='averageRating' placeholder="Enter Average Rating">
@@ -48,7 +48,11 @@ if (isset($_GET['Insert'])){
         $col3 = trim($_GET['numVotes']);
         $sql = "insert into ratings VALUES ('{$col1}',{$col2},{$col3});";
         $result = mysqli_query($conn, $sql);
-        echo "successful insert a row into ratings";
+        echo('
+            <div class="alert alert-success" role="alert">
+                successful insert a row into ratings
+            </div>
+        ');
     } catch (Exception $e){
         if (str_contains($e, 'Duplicate')){
             echo "<b>Insertion failed.</b> This region already exists.";

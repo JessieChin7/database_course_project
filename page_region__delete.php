@@ -78,8 +78,11 @@ if (isset($_GET['submit'])){
         </form>
         ');
     }else if ($resultCheck>1){
-        echo "**Please Enter a specific region to continue**"."<br>";
-
+        echo('
+        <div class="alert alert-warning" role="alert">
+        Please Enter a specific region to continue
+        </div>
+        ');
         echo '<table class="table table-striped table-bordered">';
         echo '<thead>';
         echo '<tr>';
@@ -97,7 +100,11 @@ if (isset($_GET['submit'])){
         echo '</tbody>';
         echo '</table>';
     } else{
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
 }
 
@@ -106,7 +113,11 @@ if (isset($_GET['delete'])){
         $col = trim($_GET['delete_region']);
         $sql = "delete from region where region='{$col}';";
         mysqli_query($conn, $sql);
-        echo "successfully delete a row from region";
+        echo('
+        <div class="alert alert-success" role="alert">
+            successful delete a row from region
+        </div>
+        ');
     } catch (Exception $e){
         echo $e;
     }

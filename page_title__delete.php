@@ -89,7 +89,11 @@ if (isset($_GET['submit'])){
         ');
     
     }else if ($resultCheck>1){
-        echo "**Please Enter a specific tconst to continue**"."<br>";
+        echo('
+        <div class="alert alert-warning" role="alert">
+        Please Enter a specific tconst to continue
+        </div>
+        ');
         echo '<table class="table table-striped table-bordered">';
         echo '<thead>';
         echo '<tr>';
@@ -119,7 +123,11 @@ if (isset($_GET['submit'])){
         echo '</tbody>';
         echo '</table>';
     } else{
-        echo "No matching results";
+        echo('
+        <div class="alert alert-warning" role="alert">
+            No matching results
+        </div>
+        ');
     }
 }
 
@@ -128,7 +136,11 @@ if (isset($_GET['delete'])){
         $col = trim($_GET['delete_tconst']);
         $sql = "delete from title where tconst='{$col}';";
         mysqli_query($conn, $sql);
-        echo "successfully delete a row from title";
+        echo('
+        <div class="alert alert-success" role="alert">
+            successful delete a row from title
+        </div>
+        ');
     } catch (Exception $e){
         echo $e;
     }
