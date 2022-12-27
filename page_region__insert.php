@@ -41,7 +41,6 @@ if (isset($_GET['Insert'])){
         $col1 = trim($_GET['region']);
         $col2 = trim($_GET['regionName']);
         $sql = "insert into region VALUES ('{$col1}','{$col2}');";
-        echo $sql;
         $result = mysqli_query($conn, $sql);
         echo('
         <div class="alert alert-success" role="alert">
